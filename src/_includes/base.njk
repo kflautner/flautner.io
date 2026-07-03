@@ -5,17 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
     <meta name="description" content="{{ description or site.description }}" />
+    <meta name="theme-color" content="#352879" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
-  <body>
+  <body class="{% if '/essays/' in page.url %}reading{% endif %}">
+    <div class="boot">
+      <pre>
+    **** {{ site.name | upper }} 64 BASIC V2 ****
+
+ 64K RAM SYSTEM  38911 BASIC BYTES FREE
+
+<span class="ready">READY.</span>
+LOAD "{{ (title or "INDEX") | upper }}",8
+LIST</pre>
+    </div>
+
+    <div class="copper" aria-hidden="true"></div>
+
     <header class="site-header">
-      <a class="brand" href="/">{{ site.name }}</a>
       <nav>
-        <a href="/">Home</a>
-        <a href="/essays/">Essays</a>
+        <a href="/">ABOUT ME</a>
+        <a href="/essays/">ESSAYS</a>
       </nav>
     </header>
 
@@ -23,8 +36,17 @@
       {{ content | safe }}
     </main>
 
+    {% if page.url == "/" %}
+    <div class="raster top" aria-hidden="true"></div>
+    <div class="scroller" aria-hidden="true">
+      <span><b>ANOTHER FABULOUS MEGADEMO FROM VIP &#9622;&#9623;&#9612;&#9616; GREETINGS FROM ORLEANDER &#9600;&#9604;&#9600;&#9604; THANKS FOR STOPPING BY &#9617;&#9618;&#9619;&#9618;&#9617; GREETS TO DEMON, SOLO, OMEN, NEWLOCAL OF VIP AND THE MOFOS FROM FBI CREW AND ALL THE OTHER CRAZY CONTACTS AROUND THE WORLD, BUT ESPECIALLY SHITFACTORY &#9670;&#9671;&#9670; PRESS RUN/STOP + RESTORE TO CONTINUE &#9622;&#9623;&#9612;&#9616;</b></span>
+    </div>
+    <div class="raster bottom" aria-hidden="true"></div>
+    {% endif %}
+
     <footer class="site-footer">
-      <p>© {{ site.name }} · <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      <p><span class="ready">READY.</span><br />
+      Copyright (C) 2026 Krisztian Flautner, All Rights Reserved. &mdash; <a href="mailto:{{ site.email }}">{{ site.email }}</a><span class="cursor"></span></p>
     </footer>
   </body>
 </html>

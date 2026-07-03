@@ -1,22 +1,45 @@
 ---
 layout: base.njk
-title: Home
+title: About Me
 ---
 
 <section class="hero">
-  <span class="kicker">Personal site</span>
-  <h1>Hi, I'm [Your Name].</h1>
-  <p class="lead">
-    [One or two sentences on who you are and what you do. Replace this placeholder
-    with your own bio — this is the first thing visitors read.]
-  </p>
+  <img class="portrait" src="/assets/krisztian-c64.png"
+       alt="Pixel-art portrait of Krisztian Flautner in Commodore 64 colours"
+       width="336" height="336" />
+  <div class="hero-text">
+    <h1>Hi, I'm Krisztian Flautner.<span class="cursor"></span></h1>
+    <p class="lead">
+      Computer architect working across the innovation spectrum — from processor
+      and system design to cloud computing and AI systems.
+    </p>
+  </div>
 </section>
 
 <section>
   <p>
-    [A short paragraph of bio. Talk about your background, your work, your
-    interests, or whatever you'd like people to know. Edit this in
-    <code>src/index.njk</code>.]
+    I'm a computer architect with a broad range of expertise, spanning from
+    processor and system design to cloud computing and AI systems. My primary
+    focus is on transforming research ideas into products and working across the
+    innovation spectrum, from early-stage concepts through product-market fit to
+    scale.
+  </p>
+  <p>
+    I'm a professor in the Department of Computer Science and Engineering at the
+    University of Michigan and a co-founder of
+    Replicam, a company building the most accurate models of the
+    human brain. I've co-authored over 80 publications and received various best
+    paper awards, including the 2017 ISCA Influential Paper Award for groundbreaking
+    research in power-efficient computing, and the 2021 MICRO Test of Time award.
+  </p>
+  <p>
+    I was responsible for product strategy in Cisco's Emerging Technology &amp;
+    Incubation Group, following my tenure as CEO of Banzai Cloud,
+    a startup Cisco acquired that turned cloud-native dreams into enterprise reality
+    through cloud software. Previously, I served as general manager of the Internet
+    of Things business unit and as VP of research and development at Arm.
+    I received a PhD in computer science and engineering, as well as several other
+    degrees, from the University of Michigan.
   </p>
   <p>
     You can reach me at <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
@@ -24,7 +47,7 @@ title: Home
 </section>
 
 <section>
-  <h2>Recent essays</h2>
+  <h2>&gt; DIR ESSAYS</h2>
   <ul class="essay-list">
     {% for essay in collections.essays %}
       {% if loop.index <= 3 %}
@@ -38,5 +61,5 @@ title: Home
       {% endif %}
     {% endfor %}
   </ul>
-  <p style="margin-top:20px;"><a href="/essays/">All essays →</a></p>
+  <p style="margin-top:20px;"><a href="/essays/">LOAD ALL ESSAYS &rarr;</a></p>
 </section>

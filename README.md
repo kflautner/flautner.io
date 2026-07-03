@@ -78,7 +78,6 @@ In Namecheap: **Domain List → Manage (flautner.io) → Domain tab → Redirect
 
 | Alias (@flautner.io) | Forwards to           |
 |----------------------|-----------------------|
-| hello                | your-real@email.com   |
 | kris                 | your-real@email.com   |
 | ...                  | ...                   |
 
