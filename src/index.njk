@@ -1,0 +1,42 @@
+---
+layout: base.njk
+title: Home
+---
+
+<section class="hero">
+  <span class="kicker">Personal site</span>
+  <h1>Hi, I'm [Your Name].</h1>
+  <p class="lead">
+    [One or two sentences on who you are and what you do. Replace this placeholder
+    with your own bio — this is the first thing visitors read.]
+  </p>
+</section>
+
+<section>
+  <p>
+    [A short paragraph of bio. Talk about your background, your work, your
+    interests, or whatever you'd like people to know. Edit this in
+    <code>src/index.njk</code>.]
+  </p>
+  <p>
+    You can reach me at <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+  </p>
+</section>
+
+<section>
+  <h2>Recent essays</h2>
+  <ul class="essay-list">
+    {% for essay in collections.essays %}
+      {% if loop.index <= 3 %}
+      <li class="essay-card">
+        <a href="{{ essay.url }}">
+          <h3>{{ essay.data.title }}</h3>
+          <span class="date">{{ essay.date | readableDate }}</span>
+          <p>{{ essay.data.summary }}</p>
+        </a>
+      </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <p style="margin-top:20px;"><a href="/essays/">All essays →</a></p>
+</section>

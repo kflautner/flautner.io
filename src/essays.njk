@@ -1,0 +1,20 @@
+---
+layout: base.njk
+title: Essays
+permalink: /essays/
+---
+
+<h1>Essays</h1>
+<p class="lead">Writing on things I've been thinking about.</p>
+
+<ul class="essay-list">
+  {% for essay in collections.essays %}
+  <li class="essay-card">
+    <a href="{{ essay.url }}">
+      <h3>{{ essay.data.title }}</h3>
+      <span class="date">{{ essay.date | readableDate }}</span>
+      <p>{{ essay.data.summary }}</p>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
