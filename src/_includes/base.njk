@@ -37,7 +37,7 @@ LIST</pre>
         <a href="/" class="{{ 'active' if page.url == '/' }}">ABOUT ME</a>
         <a href="/essays/" class="{{ 'active' if '/essays/' in page.url }}">ESSAYS</a>
       </nav>
-      <button type="button" id="invert-toggle" class="invert-btn">INVERT</button>
+      <button type="button" id="invert-toggle" class="invert-btn" aria-label="Invert colour scheme">POKE 53280,<span class="c-border">15</span> : POKE 53281,<span class="c-bg">1</span> : POKE 646,<span class="c-text">6</span> : REM <span class="c-rem">DARK ON LIGHT</span></button>
     </header>
 
     <main>
@@ -54,7 +54,7 @@ LIST</pre>
 
     <footer class="site-footer">
       <p><span class="ready">READY.</span><br />
-      Copyright (C) 2026 Krisztian Flautner, All Rights Reserved. &mdash; <a class="j-email show" data-e="{{ site.email | b64 }}" href="#">email</a><span class="cursor"></span></p>
+      Copyright (C) 2026 Krisztian Flautner, All Rights Reserved. <a class="j-email show" data-e="{{ site.email | b64 }}" href="#">{{ site.email | replace("@", " [at] ") | replace(".", " [dot] ") }}</a></p>
     </footer>
 
     <script>
@@ -79,12 +79,29 @@ LIST</pre>
 
     <script>
       // INVERT button: toggle the light colour scheme and remember the choice.
+      // The POKE codes show the C64 border (53280) / background (53281) colours
+      // of the scheme you'd switch TO (the "next" scheme).
       (function () {
         var btn = document.getElementById("invert-toggle");
         if (!btn) return;
+        var borderEl = btn.querySelector(".c-border");
+        var bgEl = btn.querySelector(".c-bg");
+        var textEl = btn.querySelector(".c-text");
+        var remEl = btn.querySelector(".c-rem");
+        function render() {
+          var inverted = document.documentElement.classList.contains("inverted");
+          // next dark  -> border light-blue 14, bg blue 6, text light-blue 14
+          // next light -> border light-grey 15, bg white 1, text blue 6
+          if (borderEl) borderEl.textContent = inverted ? "14" : "15";
+          if (bgEl) bgEl.textContent = inverted ? "6" : "1";
+          if (textEl) textEl.textContent = inverted ? "14" : "6";
+          if (remEl) remEl.textContent = inverted ? "LIGHT ON DARK" : "DARK ON LIGHT";
+        }
+        render();
         btn.addEventListener("click", function () {
           var on = document.documentElement.classList.toggle("inverted");
           try { localStorage.setItem("invert", on ? "1" : "0"); } catch (e) {}
+          render();
         });
       })();
     </script>

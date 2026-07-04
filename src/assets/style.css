@@ -88,7 +88,7 @@ a:hover { background: var(--c64-cyan); color: var(--c64-blue); }
   white-space: pre-wrap;
   line-height: 1.2;
 }
-.boot .ready { color: var(--c64-white); }
+.boot .ready { color: var(--c64-ltblue-bright); }
 
 /* ---- Nav (as a BASIC menu) ---------------------------------- */
 .site-header {
@@ -102,8 +102,9 @@ a:hover { background: var(--c64-cyan); color: var(--c64-blue); }
 }
 .site-header nav { display: flex; flex-wrap: wrap; gap: 6px 26px; }
 .site-header .brand { color: var(--c64-white); }
-.site-header nav a { color: var(--c64-cyan); }
+.site-header nav a { color: var(--c64-ltblue-bright); }
 .site-header nav a::before { content: "> "; color: var(--c64-ltblue-bright); }
+.site-header nav a:hover { background: var(--c64-ltblue-bright); color: var(--c64-blue); }
 /* Highlight the nav item for the page you're on (dark text stays readable). */
 .site-header nav a.active {
   background: var(--c64-yellow);
@@ -125,16 +126,8 @@ a:hover { background: var(--c64-cyan); color: var(--c64-blue); }
   letter-spacing: 0.03em;
   cursor: pointer;
   text-shadow: none;
-}
-.invert-btn::after {
-  content: "";
-  display: inline-block;
-  width: 0.55em;
-  height: 1.05em;
-  margin-left: 5px;
-  background: currentColor;
-  vertical-align: -0.18em;
-  animation: blink 1s steps(1) infinite;
+  text-align: left;
+  line-height: 1.15;
 }
 /* Reverse-video highlight on hover/focus, like the C64 cursor over text. */
 .invert-btn:hover,
@@ -152,11 +145,23 @@ h1, h2, h3 {
   text-transform: uppercase;
 }
 h1 { font-size: 1.15rem; margin: 18px 0 14px; }
-h2 { font-size: 0.85rem; margin: 30px 0 12px; color: var(--c64-cyan); }
+h2 { font-size: 0.85rem; margin: 30px 0 12px; color: var(--c64-yellow); }
 h3 { font-size: 0.8rem; margin: 0 0 8px; }
-.lead { color: var(--c64-white); }
+.lead { color: var(--c64-ltblue-bright); }
 /* Make the name heading a mailto link that still looks like a heading. */
 .title-link { color: inherit; text-decoration: none; }
+/* Email address links use the normal body text colour (not the teal accent). */
+.j-email.show { color: var(--c64-ltblue-bright); }
+.j-email:hover,
+.j-email:focus-visible { background: var(--c64-ltblue-bright); color: var(--c64-blue); outline: none; }
+/* Inline text link: same colour as surrounding text; only reacts on hover. */
+.text-link { color: inherit; text-decoration: none; }
+.text-link:hover,
+.text-link:focus-visible { background: var(--c64-ltblue-bright); color: var(--c64-blue); outline: none; }
+/* Same behaviour for links inside essay text (but not the LOAD command link). */
+.article a:not(.back) { color: inherit; text-decoration: none; }
+.article a:not(.back):hover,
+.article a:not(.back):focus-visible { background: var(--c64-ltblue-bright); color: var(--c64-blue); outline: none; }
 .title-link:hover,
 .title-link:focus-visible { color: var(--c64-cyan); background: none; outline: none; }
 
@@ -289,15 +294,16 @@ h3 { font-size: 0.8rem; margin: 0 0 8px; }
   margin-top: 34px;
   color: var(--c64-ltblue-bright);
   text-decoration: none;
+  line-height: 1.15;
 }
 .back::after {
   content: "";
   display: inline-block;
-  width: 0.55em;
-  height: 1.05em;
-  margin-left: 5px;
+  width: 0.5em;
+  height: 1.15em;
+  margin-left: 0.15em;
+  vertical-align: top;
   background: currentColor;
-  vertical-align: -0.18em;
   animation: blink 1s steps(1) infinite;
 }
 .back:hover,
@@ -314,10 +320,11 @@ h3 { font-size: 0.8rem; margin: 0 0 8px; }
   padding: 26px 22px 34px;
   color: var(--c64-ltblue-bright);
 }
-.site-footer .ready { color: var(--c64-white); }
+.site-footer .ready { color: var(--c64-ltblue-bright); }
+.site-footer .j-email { text-transform: uppercase; }  /* display only; mailto stays lowercase */
 
 /* Respect users who don't want motion */
 @media (prefers-reduced-motion: reduce) {
-  .scroller span, .scroller span b, .cursor, .raster, .invert-btn::after, .back::after { animation: none; }
+  .scroller span, .scroller span b, .cursor, .raster, .back::after { animation: none; }
   .scroller span { padding-left: 0; }
 }

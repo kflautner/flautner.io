@@ -4,7 +4,7 @@ date: 2006-03-20
 summary: An AI-translated 2006 lecture by György Spiró on how Rome's conquered provinces reshaped the empire from its periphery — and what that pattern still means today.
 ---
 
-> Below is an AI-translation of a lecture given by György Spiró in 2006. The original Hungarian transcript and videos are [here](https://www.youtube.com/watch?v=NQjheO-khmI) and [here](https://www.youtube.com/watch?v=uPvEcRTxsOU&t=4275s). It explores how Rome declined and fell, resulting from spreading ideas from its periphery to the center. Superpower leaders often fail to grasp Seneca's warning: "whom you conquer today will enslave you tomorrow," as the nature of this "enslavement" are unpredictable and difficult to recognize in the moment.
+> Below is an AI-translation of a lecture given by György Spiró in 2006. The original Hungarian [transcript](https://www.origo.hu/attached/2006032120060321spirogyorgy.rtf) and videos are [here](https://www.youtube.com/watch?v=NQjheO-khmI) and [here](https://www.youtube.com/watch?v=uPvEcRTxsOU&t=4275s). It explores how Rome declined and fell, resulting from spreading ideas from its periphery to the center. Superpower leaders often fail to grasp Seneca's warning: "whom you conquer today will enslave you tomorrow," as the nature of this "enslavement" are unpredictable and difficult to recognize in the moment.
 
 VIII. Semester, Lecture 5 - March 20, 2006
 

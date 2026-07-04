@@ -8,7 +8,7 @@ title: About Me
        alt="Pixel-art portrait of Krisztian Flautner in Commodore 64 colours"
        width="336" height="336" />
   <div class="hero-text">
-    <h1><a class="title-link j-email" data-e="{{ site.email | b64 }}" href="#">Hi, I'm Krisztian Flautner.</a><span class="cursor"></span></h1>
+    <h1><a class="title-link j-email" data-e="{{ site.email | b64 }}" href="#">Hi, I'm Krisztian Flautner.</a></h1>
     <p class="lead">
       Architect of computers,<br>builder of companies,<br>seeker of perspectives.
     </p>
@@ -23,7 +23,7 @@ title: About Me
   <p>
     I'm a professor in the Department of Computer Science and Engineering at the
     University of Michigan and a co-founder of
-    Replicam, a company building the most accurate models of the
+    <a class="text-link" href="https://www.replicam.bio" target="_blank" rel="noopener">Replicam</a>, a company building the most accurate models of the
     human brain. I've co-authored over 80 publications and received various best
     paper awards, including the 2017 ISCA Influential Paper Award for groundbreaking
     research in power-efficient computing, and the 2021 MICRO Test of Time award.
@@ -38,7 +38,7 @@ title: About Me
     degrees, from the University of Michigan.
   </p>
   <p>
-    You can reach me at <a class="j-email show" data-e="{{ site.email | b64 }}" href="#">email</a>.
+    You can reach me at <a class="j-email show" data-e="{{ site.email | b64 }}" href="#">{{ site.email | replace("@", " [at] ") | replace(".", " [dot] ") }}</a>.
   </p>
 </section>
 
