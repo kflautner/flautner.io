@@ -273,8 +273,8 @@ h3 { font-size: 0.8rem; margin: 0 0 8px; }
   text-shadow: none;
   letter-spacing: 0.01em;
 }
-.article :is(p, li) { color: #e4e0f7; }
-.article strong { color: var(--c64-white); }
+.article :is(p, li) { color: var(--c64-ltblue-bright); }
+.article strong { color: var(--c64-ltblue-bright); }
 .article blockquote {
   border-left: 4px solid var(--c64-cyan);
   margin: 18px 0;

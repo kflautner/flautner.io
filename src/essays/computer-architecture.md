@@ -70,7 +70,7 @@ These are not unusually long time periods for adopting a new architecture in a n
   
 When evolving instruction sets, it’s worth taking an incremental approach whenever possible. This incrementalism is evident in the messy encodings of both the ARM and x86 architectures: they evolved through pragmatic additions and clever compromises, which show up as counterintuitive instructions and encodings. These instruction sets evolved in a backward-compatible way due to microarchitectural innovations enabled by Moore’s law. Increased transistor counts allowed architects to allocate them to features such as register renaming, decoded instruction, trace, and micro-operation caches. What started as a war of competing philosophies for designing instruction sets ended in a truce: CISC and RISC processors came to resemble each other.   
   
-**Disruption**  
+### Disruption
   
 In the 2010s, the ARM architecture and its processors were becoming competitive with the best that the traditional, merchant silicon manufacturers could build. Merchant silicon is the term for a processor available on the open market that anyone can buy (captive silicon is a term for a company’s own designs). Contrast this with AWS Graviton or Apple’s M and A series processors, which are designed in-house and are only available for use in the company’s own products. The fact that these companies can design their own processors cost-effectively is the benefit they derive from ARM’s business model and the decades of software investment in the ARM ecosystem.  
   
@@ -106,7 +106,7 @@ Four pieces of specific advice: 1) Always draw and redraw diagrams about hardwar
   
 Learn many narratives, and when you encounter a situation, analyze the course of action they suggest. Don’t be afraid to be skeptical and to criticize them. The hardest thing to decide is usually which narrative actually applies, and you can only extract that essence through criticism. To choose the best narrative takes curiosity, experience, and judgment. Harvard Business School is famous for using case studies to guide businesses, and the same narrative approach can be applied effectively to understand the right trade-offs in computers.  
   
-**Competing narratives**  
+### Competing narratives
   
 Understanding the real engineering constraints and what you can do about them goes way beyond understanding the technology: you have to understand how a piece of technology fits with others and gets used, and what real impact that can have on its users. When Apple moved the Mac to the ARM architecture in 2020 with the M1 processor, the speedup and efficiency gains were astonishing compared to its Intel predecessors. At the surface, this could seem like a story that says Intel missed the plot and that ARM and Apple were much more clever. A better explanation turns out to be less divisive.   
   
