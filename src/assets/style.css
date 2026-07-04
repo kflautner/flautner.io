@@ -108,6 +108,13 @@ a:hover { background: var(--c64-cyan); color: var(--c64-blue); }
 .site-header .brand { color: var(--c64-white); }
 .site-header nav a { color: var(--c64-cyan); }
 .site-header nav a::before { content: "> "; color: var(--c64-ltblue-bright); }
+/* Highlight the nav item for the page you're on (dark text stays readable). */
+.site-header nav a.active {
+  background: var(--c64-yellow);
+  color: var(--c64-blue);
+  padding: 0 6px;
+}
+.site-header nav a.active::before { color: var(--c64-blue); }
 
 /* ---- Headings ----------------------------------------------- */
 h1, h2, h3 {

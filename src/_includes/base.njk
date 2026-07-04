@@ -27,8 +27,8 @@ LIST</pre>
 
     <header class="site-header">
       <nav>
-        <a href="/">ABOUT ME</a>
-        <a href="/essays/">ESSAYS</a>
+        <a href="/" class="{{ 'active' if page.url == '/' }}">ABOUT ME</a>
+        <a href="/essays/" class="{{ 'active' if '/essays/' in page.url }}">ESSAYS</a>
       </nav>
     </header>
 
