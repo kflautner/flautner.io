@@ -105,6 +105,7 @@ a:hover { background: var(--c64-cyan); color: var(--c64-blue); }
 .site-header nav a { color: var(--c64-ltblue-bright); }
 .site-header nav a::before { content: "> "; color: var(--c64-ltblue-bright); }
 .site-header nav a:hover { background: var(--c64-ltblue-bright); color: var(--c64-blue); }
+.site-header nav a:hover::before { color: var(--c64-blue); }
 /* Highlight the nav item for the page you're on (dark text stays readable). */
 .site-header nav a.active {
   background: var(--c64-yellow);
