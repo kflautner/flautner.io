@@ -11,7 +11,7 @@
   --c64-yellow: #d5df7c;
   --c64-lightgreen: #94e089;
   --c64-red: #b86962;
-  --border-w: 44px;          /* the thick C64 screen border */
+  --border-w: 88px;          /* the thick C64 screen border (mobile overrides below) */
 }
 
 * { box-sizing: border-box; }
