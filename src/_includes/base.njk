@@ -14,9 +14,7 @@
       // Apply the saved INVERT (light) preference early, on essay pages only,
       // so there's no flash of the dark theme before the page paints.
       try {
-        if (localStorage.getItem("invert") === "1" &&
-            location.pathname.indexOf("/essays/") !== -1 &&
-            location.pathname !== "/essays/") {
+        if (localStorage.getItem("invert") === "1") {
           document.documentElement.classList.add("inverted");
         }
       } catch (e) {}
@@ -39,9 +37,7 @@ LIST</pre>
         <a href="/" class="{{ 'active' if page.url == '/' }}">ABOUT ME</a>
         <a href="/essays/" class="{{ 'active' if '/essays/' in page.url }}">ESSAYS</a>
       </nav>
-      {% if '/essays/' in page.url and page.url != '/essays/' %}
       <button type="button" id="invert-toggle" class="invert-btn">INVERT</button>
-      {% endif %}
     </header>
 
     <main>
