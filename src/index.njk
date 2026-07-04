@@ -10,19 +10,15 @@ title: About Me
   <div class="hero-text">
     <h1>Hi, I'm Krisztian Flautner.<span class="cursor"></span></h1>
     <p class="lead">
-      Computer architect working across the innovation spectrum — from processor
-      and system design to cloud computing and AI systems.
+      Architect of computers,<br>builder of companies,<br>seeker of perspectives.
     </p>
   </div>
 </section>
 
 <section>
   <p>
-    I'm a computer architect with a broad range of expertise, spanning from
-    processor and system design to cloud computing and AI systems. My primary
-    focus is on transforming research ideas into products and working across the
-    innovation spectrum, from early-stage concepts through product-market fit to
-    scale.
+    I'm a computer architect interested in both human and silicon computers. I enjoy
+    the struggle of turning ideas into products with impact.
   </p>
   <p>
     I'm a professor in the Department of Computer Science and Engineering at the
@@ -47,10 +43,10 @@ title: About Me
 </section>
 
 <section>
-  <h2>&gt; DIR ESSAYS</h2>
+  <h2>SOME ESSAYS</h2>
   <ul class="essay-list">
     {% for essay in collections.essays %}
-      {% if loop.index <= 3 %}
+      {% if loop.index <= 2 %}
       <li class="essay-card">
         <a href="{{ essay.url }}">
           <h3>{{ essay.data.title }}</h3>
@@ -61,5 +57,5 @@ title: About Me
       {% endif %}
     {% endfor %}
   </ul>
-  <p style="margin-top:20px;"><a href="/essays/">LOAD ALL ESSAYS &rarr;</a></p>
+  <p><a class="back" href="/essays/">LOAD "ALL ESSAYS",8</a></p>
 </section>

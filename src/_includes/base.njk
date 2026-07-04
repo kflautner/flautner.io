@@ -10,8 +10,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/style.css" />
+    <script>
+      // Apply the saved INVERT (light) preference early, on essay pages only,
+      // so there's no flash of the dark theme before the page paints.
+      try {
+        if (localStorage.getItem("invert") === "1" &&
+            location.pathname.indexOf("/essays/") !== -1 &&
+            location.pathname !== "/essays/") {
+          document.documentElement.classList.add("inverted");
+        }
+      } catch (e) {}
+    </script>
   </head>
-  <body class="{% if '/essays/' in page.url %}reading{% endif %}">
+  <body>
     <div class="boot">
       <pre>
     **** {{ site.name | upper }} 64 BASIC V2 ****
@@ -23,13 +34,14 @@ LOAD "{{ (title or "INDEX") | upper }}",8
 LIST</pre>
     </div>
 
-    <div class="copper" aria-hidden="true"></div>
-
     <header class="site-header">
       <nav>
         <a href="/" class="{{ 'active' if page.url == '/' }}">ABOUT ME</a>
         <a href="/essays/" class="{{ 'active' if '/essays/' in page.url }}">ESSAYS</a>
       </nav>
+      {% if '/essays/' in page.url and page.url != '/essays/' %}
+      <button type="button" id="invert-toggle" class="invert-btn">INVERT</button>
+      {% endif %}
     </header>
 
     <main>
@@ -39,7 +51,7 @@ LIST</pre>
     {% if page.url == "/" %}
     <div class="raster top" aria-hidden="true"></div>
     <div class="scroller" aria-hidden="true">
-      <span><b>ANOTHER FABULOUS MEGADEMO FROM VIP &#9622;&#9623;&#9612;&#9616; GREETINGS FROM ORLEANDER &#9600;&#9604;&#9600;&#9604; THANKS FOR STOPPING BY &#9617;&#9618;&#9619;&#9618;&#9617; GREETS TO DEMON, SOLO, OMEN, NEWLOCAL OF VIP AND THE MOFOS FROM FBI CREW AND ALL THE OTHER CRAZY CONTACTS AROUND THE WORLD, BUT ESPECIALLY SHITFACTORY &#9670;&#9671;&#9670; PRESS RUN/STOP + RESTORE TO CONTINUE &#9622;&#9623;&#9612;&#9616;</b></span>
+      <span><b>TUM DE DUM, TUM DE DUM ... ANOTHER CRAZY RELEASE FROM VIP &#9622;&#9623;&#9612;&#9616; GREETINGS FROM ORLEANDER &#9600;&#9604;&#9600;&#9604; THANKS FOR STOPPING BY &#9617;&#9618;&#9619;&#9618;&#9617; GREETS TO DEMON, SOLO, OMEN, NEWLOCAL OF VIP, MR. WAX AND JEAN FROM FBI CREW, TOMI OF ADT AND ALL THE OTHER CRAZY CONTACTS AROUND THE WORLD... SPECIAL THANKS TO CLAUDE OF ANTHROPIC &#9671;&#9671;&#9670; PRESS RUN/STOP + RESTORE TO CONTINUE &#9622;&#9623;&#9612;&#9616;</b></span>
     </div>
     <div class="raster bottom" aria-hidden="true"></div>
     {% endif %}
@@ -48,5 +60,17 @@ LIST</pre>
       <p><span class="ready">READY.</span><br />
       Copyright (C) 2026 Krisztian Flautner, All Rights Reserved. &mdash; <a href="mailto:{{ site.email }}">{{ site.email }}</a><span class="cursor"></span></p>
     </footer>
+
+    <script>
+      // INVERT button: toggle the light colour scheme and remember the choice.
+      (function () {
+        var btn = document.getElementById("invert-toggle");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var on = document.documentElement.classList.toggle("inverted");
+          try { localStorage.setItem("invert", on ? "1" : "0"); } catch (e) {}
+        });
+      })();
+    </script>
   </body>
 </html>

@@ -1,10 +1,10 @@
 ---
 title: Computer Architecture
 date: 2026-07-03
-summary: The field of designing computing machines — its ten-thousand-year backstory, and whether its narratives still fit the future.
+summary: The field of designing computing machines, some of its ten-thousand-year backstory, and whether its narratives still fit the future.
 ---
 
-> This is the latest version of one of the essays for EECS 470 students at the University of Michigan. This class on computer architecture is intended to benefit the next generation of computer engineers, who are only now familiarizing themselves with the technologies and narratives that have developed around computer engineering over the last 50 centuries or so. My other objective is for the readers to introspect on where and whether these narratives continue to fit as the future unfolds.  
+> This is the latest version of an essay for EECS 470 students at the University of Michigan. This class on computer architecture is for the next generation of engineers, who are starting to familiarize themselves with the technologies and narratives around computer engineering. My other objective is for the readers to reflect on where and whether these narratives continue to fit as the future unfolds.
   
 Computer Architecture is the field that focuses on the design and construction of computing machines. Computing is now specialized into many areas, including software, hardware, microcontrollers, supercomputers, cloud computing, edge computing, networking, AI, accelerators, processors, theory, and the list goes on and on. Regardless of the specialization, computer architecture’s goal is to reconcile often-conflicting requirements to produce computers that work well and remain within appropriate budgets.   
   

@@ -11,8 +11,26 @@
   --c64-yellow: #d5df7c;
   --c64-lightgreen: #94e089;
   --c64-red: #b86962;
-  --border-w: 88px;          /* the thick C64 screen border (mobile overrides below) */
+  --border-w: 132px;         /* the thick C64 screen border (mobile overrides below) */
 }
+
+/* INVERT mode: light background, dark text (toggled on essay pages).
+   Re-points the palette variables so the whole scheme flips at once. */
+html.inverted {
+  --c64-blue: #f6f3ec;          /* was the dark screen — now the light background */
+  --c64-ltblue: #d6cff0;        /* lighter purple frame in light mode */
+  --c64-ltblue-bright: #2a2352; /* default text — now dark */
+  --c64-white: #14102e;         /* emphasis — near-black */
+  --c64-cyan: #1f5e73;          /* links / subheadings — dark teal */
+  --c64-yellow: #6a5810;        /* headings — dark gold */
+  --c64-lightgreen: #2c6a2a;    /* dates — dark green */
+}
+html.inverted body { text-shadow: none; border-color: var(--c64-blue); }  /* frame blends into the page in light mode */
+html.inverted body::after { display: none; }  /* no CRT scanlines in light mode */
+html.inverted .article :is(p, li) { color: #2a2352; }
+html.inverted :is(h1, h2, h3) { color: #7a3ba0; }  /* headings in light mode */
+/* Match the active-nav highlight to the heading colour in light mode. */
+html.inverted .site-header nav a.active { background: #7a3ba0; color: var(--c64-blue); }
 
 * { box-sizing: border-box; }
 
@@ -50,8 +68,6 @@ body::after {
   z-index: 50;
   mix-blend-mode: multiply;
 }
-/* No scanlines on reading (essay) pages — keeps long text clean. */
-body.reading::after { display: none; }
 
 main { max-width: 760px; margin: 0 auto; padding: 8px 22px 40px; }
 
@@ -74,37 +90,17 @@ a:hover { background: var(--c64-cyan); color: var(--c64-blue); }
 }
 .boot .ready { color: var(--c64-white); }
 
-/* ---- Copper bars (demoscene raster bars) -------------------- */
-.copper {
-  height: 26px;
-  margin: 10px auto 0;
-  max-width: 760px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--c64-red), var(--c64-yellow), var(--c64-lightgreen),
-    var(--c64-cyan), var(--c64-white), var(--c64-cyan),
-    var(--c64-lightgreen), var(--c64-yellow), var(--c64-red)
-  );
-  background-size: 200% 100%;
-  animation: copper-slide 6s linear infinite;
-  image-rendering: pixelated;
-  filter: saturate(0.85);
-}
-@keyframes copper-slide {
-  from { background-position: 0 0; }
-  to { background-position: 200% 0; }
-}
-
 /* ---- Nav (as a BASIC menu) ---------------------------------- */
 .site-header {
   max-width: 760px;
   margin: 0 auto;
   padding: 6px 22px 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px 26px;
-  align-items: baseline;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
+.site-header nav { display: flex; flex-wrap: wrap; gap: 6px 26px; }
 .site-header .brand { color: var(--c64-white); }
 .site-header nav a { color: var(--c64-cyan); }
 .site-header nav a::before { content: "> "; color: var(--c64-ltblue-bright); }
@@ -115,6 +111,38 @@ a:hover { background: var(--c64-cyan); color: var(--c64-blue); }
   padding: 0 6px;
 }
 .site-header nav a.active::before { color: var(--c64-blue); }
+/* INVERT presented as a typed C64 BASIC command (essay pages only):
+   no button chrome, terminal font, with a blinking block cursor after it. */
+.invert-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--c64-ltblue-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  text-shadow: none;
+}
+.invert-btn::after {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 5px;
+  background: currentColor;
+  vertical-align: -0.18em;
+  animation: blink 1s steps(1) infinite;
+}
+/* Reverse-video highlight on hover/focus, like the C64 cursor over text. */
+.invert-btn:hover,
+.invert-btn:focus-visible {
+  background: var(--c64-ltblue-bright);
+  color: var(--c64-blue);
+  outline: none;
+}
 
 /* ---- Headings ----------------------------------------------- */
 h1, h2, h3 {
@@ -223,6 +251,9 @@ h3 { font-size: 0.8rem; margin: 0 0 8px; }
 .essay-card p { margin: 8px 0 0; color: var(--c64-ltblue-bright); }
 
 /* ---- Article ------------------------------------------------ */
+/* Lift the essay text above the CRT scanline overlay (body::after, z-index 50)
+   so the fine lines cross the background but not the letters themselves. */
+.article { position: relative; z-index: 60; }
 .article .date { color: var(--c64-lightgreen); }
 /* Body copy uses a clean, non-pixel font for comfortable reading.
    Headings and subheadings keep their pixel styling. */
@@ -248,7 +279,29 @@ h3 { font-size: 0.8rem; margin: 0 0 8px; }
   margin: 24px auto;
   border: 3px solid var(--c64-ltblue);
 }
-.back { display: inline-block; margin-top: 34px; }
+/* Back link styled as a typed C64 BASIC command with a blinking cursor. */
+.back {
+  display: inline-block;
+  margin-top: 34px;
+  color: var(--c64-ltblue-bright);
+  text-decoration: none;
+}
+.back::after {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 5px;
+  background: currentColor;
+  vertical-align: -0.18em;
+  animation: blink 1s steps(1) infinite;
+}
+.back:hover,
+.back:focus-visible {
+  background: var(--c64-ltblue-bright);
+  color: var(--c64-blue);
+  outline: none;
+}
 
 /* ---- Footer ------------------------------------------------- */
 .site-footer {
@@ -261,6 +314,6 @@ h3 { font-size: 0.8rem; margin: 0 0 8px; }
 
 /* Respect users who don't want motion */
 @media (prefers-reduced-motion: reduce) {
-  .copper, .scroller span, .scroller span b, .cursor { animation: none; }
+  .scroller span, .scroller span b, .cursor, .raster, .invert-btn::after, .back::after { animation: none; }
   .scroller span { padding-left: 0; }
 }

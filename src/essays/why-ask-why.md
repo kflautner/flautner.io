@@ -1,11 +1,11 @@
 ---
 title: Why ask why?
 date: 2026-07-02
-summary: Holding multiple mental models, creativity as a way of operating, and why the narratives we build matter more than the facts.
+summary: Holding multiple mental models, the role of creativity, and why the narratives we build matter more than its details.
 ---
 
-> This is the latest version of one of the essays for EECS 470 students at the University of Michigan. This class on computer architecture is intended to benefit the next generation of computer engineers, who are only now familiarizing themselves with the technologies and narratives that have developed around computer engineering over the last 50 centuries or so. My other objective is for the readers to introspect on where and whether these narratives continue to fit as the future unfolds.  
-  
+> This is the latest version of an essay for EECS 470 students at the University of Michigan. This class on computer architecture is for the next generation of engineers, who are starting to familiarize themselves with the technologies and narratives around computer engineering. My other objective is for the readers to reflect on where and whether these narratives continue to fit as the future unfolds.
+
 If you listen to podcasts from people like Sam Harris or Scott Galloway, you might have heard them implore the audience to hold two or more, often contradictory, ideas in their minds at the same time. They do this to encourage their audience to see the bigger picture and think more deeply about a subject. F. Scott Fitzgerald wrote that the test of a first-rate intelligence is the ability to hold two opposing ideas while still retaining the ability to function. He followed it with a personal application: that one should, for example, be able to see that things are hopeless and yet be determined to make them otherwise.  
   
 My emphasis is different: being able to hold multiple mental models about a subject in your mind is necessary to improve your own knowledge. It is also a requirement if you want to solve complex problems and become good at what you do. It is a route to creativity, which, according to David Deutsch, leads to new and better explanations: “The real source of our theories is conjecture, and the real source of our knowledge is conjecture alternating with criticism.”  
