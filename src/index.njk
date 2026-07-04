@@ -8,7 +8,7 @@ title: About Me
        alt="Pixel-art portrait of Krisztian Flautner in Commodore 64 colours"
        width="336" height="336" />
   <div class="hero-text">
-    <h1><a class="title-link" href="mailto:{{ site.email }}">Hi, I'm Krisztian Flautner.</a><span class="cursor"></span></h1>
+    <h1><a class="title-link j-email" data-e="{{ site.email | b64 }}" href="#">Hi, I'm Krisztian Flautner.</a><span class="cursor"></span></h1>
     <p class="lead">
       Architect of computers,<br>builder of companies,<br>seeker of perspectives.
     </p>
@@ -38,7 +38,7 @@ title: About Me
     degrees, from the University of Michigan.
   </p>
   <p>
-    You can reach me at <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+    You can reach me at <a class="j-email show" data-e="{{ site.email | b64 }}" href="#">email</a>.
   </p>
 </section>
 

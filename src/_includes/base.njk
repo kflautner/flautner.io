@@ -58,8 +58,23 @@ LIST</pre>
 
     <footer class="site-footer">
       <p><span class="ready">READY.</span><br />
-      Copyright (C) 2026 Krisztian Flautner, All Rights Reserved. &mdash; <a href="mailto:{{ site.email }}">{{ site.email }}</a><span class="cursor"></span></p>
+      Copyright (C) 2026 Krisztian Flautner, All Rights Reserved. &mdash; <a class="j-email show" data-e="{{ site.email | b64 }}" href="#">email</a><span class="cursor"></span></p>
     </footer>
+
+    <script>
+      // Reassemble email links in the browser so the raw address is never in
+      // the page source (defeats naive spam-harvesting bots). The address is
+      // stored base64-encoded in data-e; ".show" links also display it.
+      (function () {
+        document.querySelectorAll("a.j-email").forEach(function (el) {
+          var e;
+          try { e = atob(el.getAttribute("data-e")); } catch (err) { return; }
+          if (!e) return;
+          el.setAttribute("href", "mailto:" + e);
+          if (el.classList.contains("show")) el.textContent = e;
+        });
+      })();
+    </script>
 
     {% if site.goatcounter %}
     <script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count"

@@ -10,6 +10,9 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
+  // Base64 encode a string (used to keep the email out of the raw HTML)
+  eleventyConfig.addFilter("b64", (s) => Buffer.from(String(s)).toString("base64"));
+
   // Pretty date filter, e.g. "3 July 2026"
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return new Date(dateObj).toLocaleDateString("en-GB", {
